@@ -56,7 +56,6 @@ dependencies {
     testImplementation "junit:junit:$junitVersion"
 
     // Other dependencies
-    testImplementation "org.hamcrest:hamcrest-all:$hamcrestVersion"
 
     // AndroidX Test - Instrumented testing
     androidTestImplementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
@@ -65,4 +64,23 @@ dependencies {
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
     implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
+
+    //hamcrest for better assert
+    testImplementation "org.hamcrest:hamcrest-all:$hamcrestVersion"
+
+    // AndroidX Test - JVM testing
+    /*The AndroidX Test libraries include classes and methods that provide you with versions of
+     components like Applications and Activities that are meant for tests.
+     When you have a local test where you need simulated Android framework classes (such as an Application Context),
+     follow these steps to properly set up AndroidX Test:
+    1. Add the AndroidX Test core and ext dependencies
+    2. Add the Robolectric Testing library dependency
+    3. Annotate the class with the AndroidJunit4 test runner
+    4. Write AndroidX Test code*/
+    testImplementation "androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion"
+    testImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
+
+    //When you write tests that include testing LiveData, use this rule!
+    testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
 }
